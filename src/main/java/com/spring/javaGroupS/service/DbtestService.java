@@ -11,4 +11,10 @@ public interface DbtestService {
 
 	UserVO getDbtestCheckForm(String mid);
 
+	int setDbtestUpdate(UserVO vo);
+
+	UserVO getDbtestRecByIdx(int idx);
+
+	int setDbtestDeleteOk(int idx);
+
 }

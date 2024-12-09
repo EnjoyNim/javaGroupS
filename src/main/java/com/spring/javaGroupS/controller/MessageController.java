@@ -70,8 +70,22 @@ public class MessageController {
 			model.addAttribute("message", "회원 가입 실패~~");
 			model.addAttribute("url", "/dbtest/dbtestInput");
 		}
-		
-		
+		else if(msgFlag.equals("dbtestUpdateOk")) {
+			model.addAttribute("message", "회원 정보 변경 성공!");
+			model.addAttribute("url", "/dbtest/dbtestList");
+		}
+		else if(msgFlag.equals("dbtestUpdateNo")) {
+			model.addAttribute("message", "회원 정보 변경 실패~~");
+			model.addAttribute("url", "/dbtest/dbtestUpdate?idx="+idx);
+		}
+		else if(msgFlag.equals("dbtestDeleteOk")) {
+			model.addAttribute("message", "회원 삭제 성공!");
+			model.addAttribute("url", "/dbtest/dbtestList");
+		}
+		else if(msgFlag.equals("dbtestDeleteNo")) {
+			model.addAttribute("message", "회원 삭제 실패~~");
+			model.addAttribute("url", "/dbtest/dbtestList");
+		}
 		
 		return "include/message";
 	}

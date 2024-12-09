@@ -10,11 +10,20 @@ public interface DbtestDAO {
 
 	ArrayList<UserVO> getDbtestList();
 
-										// 이렇게 해주면 vo 를 가지고 dbtestMapper.xml 에서 vo 를 사용할 수 있다.
+										
 	int setDbtestInputOk(@Param("vo") UserVO vo);
 
-														// 이런 변수 한개는 @Param("mid") 를 안해줘도 된다.
+														
 	UserVO getDbtestCheckForm(@Param("mid") String mid);
 
-		// 탬플릿을 안쓰고 할 것이다.
+
+	int setDbtestUpdate(@Param("vo") UserVO vo);
+
+
+	UserVO getDbtestRecByIdx(int idx);
+
+
+	int setDbtestDeleteOk(int idx);
+
+		
 }

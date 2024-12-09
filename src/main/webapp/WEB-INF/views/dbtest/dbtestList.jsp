@@ -43,11 +43,15 @@
 					return false;
 			}
 			
-			let url = "${ctp}/dbtest/dbtestCheckForm?mid="+mid;
+			let url = "${ctp}/dbtest/dbtestIdCheckForm?mid="+mid;
 			window.open(url, "idCheckForm", "width=500px, height=250px");
-			
 		}
 		
+		function delCheck(idx) {
+	    	let ans = confirm("현재 회원을 삭제처리 하시겠습니까?");
+	    	if(!ans) return false;
+	    	else location.href = '${ctp}/dbtest/dbtestDeleteOk?idx='+idx;
+	    }
 	</script>
 </head>
 <body>
@@ -72,7 +76,7 @@
         <td>
         		 <!-- 부트스트랩5 부터는 class="input-group" 하면 태그안에 요소들이 한줄이 된단다. --> 
         	<div class="input-group">
-        		<span class="input-group-text bg-secondary">글자</span>
+        		<span class="input-group-text bg-secondary">앞글자</span>
         		<input type="text" name="mid" id="mid" class="form-control" autofocus placeholder="아이디를 입력하세요"/>
         		<input type="button" value="아이디중복체크" onclick="idCheck()" class="btn btn-success"/>
         	</div>
@@ -129,7 +133,7 @@
         <td>${vo.gender}</td>
         <td>${vo.address}</td>
         <td>
-          <span onclick="location.href='${ctp}/user/userUpdate?idx=${vo.idx}';" class="badge text-bg-warning" style="cursor:pointer">수정</span> /
+          <span onclick="location.href='${ctp}/dbtest/dbtestUpdate?idx=${vo.idx}';" class="badge text-bg-warning" style="cursor:pointer">수정</span> /
           <a href="javascript:delCheck(${vo.idx})"><span class="badge text-bg-danger">삭제</span></a>
         </td>
       </tr>

@@ -4,28 +4,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>.jsp</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<jsp:include page="/WEB-INF/views/include/bs5.jsp" />
+	<script type="text/javascript">
 	
+	function sendIdToParent(){
+		
+		if(${isDuplicateId == 'NO'}){ // 중복아이디가 아니라면
+			// let mid = '${mid}';
+			// 부모창의 mid 입력칸에 값을 넣어줌
+			// opener.document.getElementById("mid").value = mid;
+		
+		}else{	// 중복아이디라면 빈칸으로 해줌
+			opener.document.getElementById("mid").value = '';
+		}
+		
+		window.close();
+		
+	}
+	
+	</script>
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/include/nav.jsp" />
-<jsp:include page="/WEB-INF/views/include/slide2.jsp" />
-<p><br/><p>
+
 <div class="container">
 	<h3>아이디 중복체크</h3>
 	<hr/>
 	<div class="text-center">
-		<c:if test="${isDuplicateId == 'NO'}"><font color="red"><b>${mid}는 사용 가능한 아이디 입니다.</b></font></c:if>
-		<c:if test="${isDuplicateId == 'YES'}">
-			<font color="red"><b>${mid}는 사용할 수 없는 아이디입니다.</b></font>
+	
+		<c:if test="${isDuplicateId == 'NO'}"><font color="blue"><b>${mid}는 사용 가능한 아이디 입니다.</b></font></c:if>
 		
-		</c:if>
+		<c:if test="${isDuplicateId == 'YES'}"><font color="red"><b>${mid}는 사용할 수 없는 아이디입니다.</b></font></c:if>
+		
+		<input type="button" value="닫기" onclick="sendIdToParent()">	
 	</div>
 </div>
-<p><br/><p>
-<jsp:include page="/WEB-INF/views/include/footer.jsp" />
 </body>
 </html>

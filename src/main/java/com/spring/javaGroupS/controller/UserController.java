@@ -70,6 +70,7 @@ public class UserController {
 	// 개별 회원 정보 수정 처리
 	@RequestMapping(value = "/userUpdate", method = RequestMethod.POST)
 	public String userUpdatePost(UserVO vo) {
+		System.out.println("vo:"+vo.toString());
 		int res = userService.getUserUpdateOk(vo);
 		if(res != 0) return "redirect:/message/userUpdateOk";
 		else return "redirect:/message/userUpdateNo?idx="+vo.getIdx();

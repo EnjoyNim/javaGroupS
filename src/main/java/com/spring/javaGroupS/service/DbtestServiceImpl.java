@@ -28,4 +28,22 @@ public class DbtestServiceImpl implements DbtestService {
 			// TODO Auto-generated method stub
 			return dbtestDAO.getDbtestCheckForm(mid);
 		}
+
+		@Override
+		public UserVO getDbtestRecByIdx(int idx) {
+			return dbtestDAO.getDbtestRecByIdx(idx);
+		}
+		
+		@Override
+		public int setDbtestUpdate(UserVO vo) {
+			return dbtestDAO.setDbtestUpdate(vo);
+		}
+
+		@Override
+		public int setDbtestDeleteOk(int idx) {
+			// TODO Auto-generated method stub
+			return dbtestDAO.setDbtestDeleteOk(idx);
+		}
+
+		
 }
