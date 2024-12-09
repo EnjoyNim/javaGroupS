@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	  <!-- 풀패스를 넣어준다. DAO 인터페이스의 구현객체를 만들지 않고 여기서 인터페이스에 직접 연결해준다. -->
+<mapper namespace="com.spring.javaGroupS.dao.DbtestDAO">
+
+	<select id="getDbtestList" resultType="com.spring.javaGroupS.vo.UserVO">
+			select * from user order by idx desc;
+	
+	</select>
+
+	<insert id="setDbtestInputOk">
+			insert into user values(default, #{vo.mid},#{vo.pwd},#{vo.name},#{vo.age},#{vo.gender},#{vo.address})
+	</insert>
+
+<select id="getDbtestCheckForm" resultType="com.spring.javaGroupS.vo.UserVO">
+			select * from user where mid=#{mid};
+	
+	</select>
+
+</mapper>

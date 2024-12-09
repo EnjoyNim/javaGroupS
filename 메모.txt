@@ -1,0 +1,57 @@
+12월 09일
+프로젝트할때 javaGroupS  다음에 자기 번호를 붙여서 프로젝트명을 설정하라.
+
+
+
+https://www.w3schools.com/css/css_rwd_templates.asp  여기에 좋은 템플릿 많다.
+
+https://www.transfernow.net/   와   https://send-anywhere.com/ 
+를 참고하자. 특히 transfernow 가 매력적이다.
+
+프로젝트의 ppt 마지막 부분에는 벤치마킹으로 transfernow 와의 속도 비교를 해서 넣어두자.
+
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+								   <!-- 제일 마지막 Driver 는 클래스명이므로 대문자 -->
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+					<!-- 네임스페이스라서 콜론 : -->
+		<property name="url" value="jdbc:mysql://localhost:3306/javagroup"/>
+		<property name="username" value="root"/>
+		<property name="password" value="1234"/>
+	</bean>
+이런건 세터 주입방식이다.
+
+
+
+		<bean	id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+			<constructor-arg index="0" ref="sqlSessionFactoryBean"></constructor-arg>
+		</bean>
+이건 생성자 주입방식이다. index 는 생성자의 매개변수 순서를 의미하고 ref 에는 그 매개변수에 할당할 참조값을 의미한다.
+
+
+servlet-context.xml 에서의 
+	   <!-- 빈 파일을 검색할 경로 -->
+	<context:component-scan base-package="com.spring.javaGroupS" /> 
+은 bean 파일을 검색할 위치를 지정해주는 역할이다.
+
+
+
+root-context.xml 에서
+네임스페이스 부분에서  aop, beans, context, jdbc, mybatis-spring 이렇게 5개는 체크해두는게 좋다.
+
+
+
+mybatis 사이트에 가면 아래 내용이 나온다. ㅇ걸 가져다가 내가 작성하는 ~~Mapper.xml 에 추가해줘야한다.
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+루트콘텍스트의
+typeAliasesPackage 을 사용하면 클래스명만 대소문자 구문없이 써도 되는지 확인필요 
+
+swSpringJDBC 프로젝트 집에 있는걸 가져다가 학원것에 넣기
+
+
+
+
+dbtestList.jsp 의
+수정/삭제
+와 아이디중복체크
