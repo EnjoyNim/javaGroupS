@@ -1,6 +1,7 @@
 package com.spring.javaGroupS.service;
 
 import java.util.ArrayList;
+
 import com.spring.javaGroupS.vo.UserVO;
 
 public interface DbtestService {
@@ -9,12 +10,14 @@ public interface DbtestService {
 
 	int setDbtestInputOk(UserVO vo);
 
-	UserVO getDbtestCheckForm(String mid);
-
-	int setDbtestUpdate(UserVO vo);
-
-	UserVO getDbtestRecByIdx(int idx);
+	UserVO getDbtestIdCheckForm(String mid);
 
 	int setDbtestDeleteOk(int idx);
+
+	int setDbtestUpdateOk(UserVO vo);
+
+	ArrayList<UserVO> getDbtestSearch(String mid);
+
+	ArrayList<String> getDbtestMidList();
 
 }

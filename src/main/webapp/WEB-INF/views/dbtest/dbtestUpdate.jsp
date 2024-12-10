@@ -22,7 +22,8 @@
 <jsp:include page="/WEB-INF/views/include/slide2.jsp" />
 <p><br/></p>
 <div class="container">
-  <form method="post">
+														 <!-- 액션을 생략하지 마라. 이상한 문제를 야기할 수 있다. -->
+  <form method="post" action="${ctp}/dbtest/dbtestUpdate">
   <input type="hidden" name="idx" value="${vo.idx}"/>
     <h2 class="text-center mb-4">회 원 정 보 수 정</h2>
     <table class="table table-bordered">

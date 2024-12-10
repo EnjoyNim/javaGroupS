@@ -1,32 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-	  <!-- 풀패스를 넣어준다. DAO 인터페이스의 구현객체를 만들지 않고 여기서 인터페이스에 직접 연결해준다. -->
 <mapper namespace="com.spring.javaGroupS.dao.DbtestDAO">
 
-	<select id="getDbtestList" resultType="com.spring.javaGroupS.vo.UserVO">
-			select * from user order by idx desc;
-	
+	<!-- <select id="getDbtestList" resultType="com.spring.javaGroupS.vo.UserVO"> -->
+	<select id="getDbtestList" resultType="userVO">
+		select * from user order by idx desc;
 	</select>
+	
+	<select id="getDbtestIdCheckForm" resultType="com.spring.javaGroupS.vo.UserVO">
+		select * from user where mid = #{mid};
+	</select>
+	
+	<select id="getDbtestSearch" resultType="com.spring.javaGroupS.vo.UserVO">
+		select * from user where mid like concat('%',#{mid},'%');
+	</select>
+
+		 				<!-- 아이디를 리턴하므로 리턴타입은 String 이다. -->		
+	<select id="getDbtestMidList" resultType="String">
+		select mid from user order by mid;
+	</select>
+
 
 	<insert id="setDbtestInputOk">
-			insert into user values(default, #{vo.mid},#{vo.pwd},#{vo.name},#{vo.age},#{vo.gender},#{vo.address})
+		insert into user values (default, #{vo.mid}, #{vo.pwd}, #{vo.name}, #{vo.age}, #{vo.gender}, #{vo.address});
 	</insert>
-
-	<select id="getDbtestCheckForm" resultType="com.spring.javaGroupS.vo.UserVO">
-			select * from user where mid=#{mid};
-	</select>
-
-	<select id="getDbtestRecByIdx" resultType="com.spring.javaGroupS.vo.UserVO">
-			select * from user where idx=#{idx};
-	</select>
 	
-	<update id="setDbtestUpdate">
-			update user set pwd = #{vo.pwd}, name = #{vo.name}, age = #{vo.age}, gender = #{vo.gender}, address = #{vo.address} where idx = #{vo.idx}
+	
+	
+	<update id="setDbtestUpdateOk">
+	  update user set pwd=#{vo.pwd}, name=#{vo.name}, age=#{vo.age}, gender=#{vo.gender}, address=#{vo.address} where idx = #{vo.idx};
 	</update>
 	
 	
-	<update id="setDbtestDeleteOk">
-			delete from user where idx = #{vo.idx}
-	</update>
 	
+	<delete id="setDbtestDeleteOk">
+	  delete from user where idx = #{idx};
+	</delete>
+	
+	
+
 </mapper>
